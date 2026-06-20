@@ -11,11 +11,9 @@
 <body>
 
 <header>
-    <!-- הלוגו והכותרת הקבועה של החברה -->
     <h1>SHOW TIME</h1>
     <p>הדרך החכמה למצוא איפה לראות את המשחק הבא</p>
 
-    <!-- תפריט הניווט - שימו לב שנוספו כאן הקישורים לכל העמודים -->
     <nav>
         <a href="index.html">דף הבית</a>
         <a href="search.html">חיפוש אירועים</a>
@@ -29,10 +27,8 @@
         <h2>שריון מקום מותאם אישית וסגירת פיקדון</h2>
         <p>מלאו את פרטי ההזמנה כדי להבטיח את מקומכם מול המסך בצפייה במשחק!</p>
 
-        <!-- הטופס הנדרש במטלה: בעל משמעות וללא יעד (action="#") -->
         <form action="#" method="POST" id="bookingForm">
             
-            <!-- בחירת המשחק -->
             <div class="form-group">
                 <label for="match">בחר משחק צפייה:</label>
                 <select id="match" name="match" required>
@@ -43,18 +39,16 @@
                 </select>
             </div>
 
-            <!-- בחירת הבר/המסעדה -->
             <div class="form-group">
                 <label for="venue">בחר בר/מסעדה:</label>
                 <select id="venue" name="venue" required>
                     <option value="">-- בחר מיקום צפייה --</option>
-                    <option value="bar-sali">בר סאלח (כשר) - חיפה</option>
+                    <option value="bar-sali">בר הבראון - חיפה</option>
                     <option value="sports-pub">הפאב האירי - תל אביב</option>
                     <option value="match-point">מאץ' פוינט - ירושלים</option>
                 </select>
             </div>
 
-            <!-- פרטים אישיים -->
             <div class="form-group">
                 <label for="fullName">שם מלא:</label>
                 <input type="text" id="fullName" name="fullName" placeholder="ישראל ישראלי" required>
@@ -65,7 +59,6 @@
                 <input type="tel" id="phone" name="phone" placeholder="050-1234567" required>
             </div>
 
-            <!-- כמות אנשים ואזור ישיבה -->
             <div class="form-group">
                 <label for="guests">מספר מקומות להזמנה:</label>
                 <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
@@ -81,29 +74,65 @@
                 </select>
             </div>
 
-            <!-- פרטי אשראי לפיקדון דמי רצינות -->
             <div class="form-group">
-                <label for="cardNumber">מספר כרטיס אשראי (לפיקדון ביטחון בלבד):</label>
-                <input type="text" id="cardNumber" name="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                <label for="cardNumber">מספר כרטיס אשראי:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="16 ספרות ללא מקפים" maxlength="16" required>
             </div>
 
-            <!-- כפתור שליחה -->
-            <button type="submit" class="button">אשר הזמנה ותפוס מקום</button>
+            <div class="form-row-credit">
+                <div class="form-group-credit">
+                    <label for="expDate">תוקף (MM/YY):</label>
+                    <input type="text" id="expDate" name="expDate" placeholder="05/29" maxlength="5" required>
+                </div>
+                <div class="form-group-credit">
+                    <label for="cvv">קוד ביטחון (CVV):</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="3 ספרות בגב הכרטיס" maxlength="3" required>
+                </div>
+            </div>
+
+            <button type="submit">אשר הזמנה ותפוס מקום</button>
         </form>
     </div>
 
 </main>
 
 <footer>
-    <!-- הפוטר הנדרש עם תעודות הזהות שלכם (תעדכנו את המספרים שלכם פה) -->
     <p>כל הזכויות שמורות ל... [ת.ז 123456789, ת.ז 987654321, ת.ז 555555555]</p>
 </footer>
 
-<!-- אופציונלי: קוד JS קטן שמקפיץ הודעת אישור חמודה כשלוחצים שלח -->
 <script>
     document.getElementById('bookingForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // מונע מהדף להתרענן סתם
-        alert('ההזמנה נקלטה במערכת Show Time! דמי הפיקדון שוריינו בהצלחה, ושלחנו לך הודעת SMS עם הברקוד לכניסה לבר.');
+        // מונע מהטופס להישלח אוטומטית לפני ביצוע בדיקות התקינות
+        e.preventDefault(); 
+
+        // שליפת הערכים שהוזנו בשדות האשראי
+        const cardNumber = document.getElementById('cardNumber').value.trim();
+        const expDate = document.getElementById('expDate').value.trim();
+        const cvv = document.getElementById('cvv').value.trim();
+
+        // 1. בדיקת תקינות מספר האשראי (מכיל רק מספרים ובאורך של 14 עד 16 ספרות)
+        const digitsOnlyCard = cardNumber.replace(/\D/g, '');
+        if (digitsOnlyCard.length < 14 || digitsOnlyCard.length > 16) {
+            alert('שגיאה: מספר כרטיס האשראי שהוזן אינו תקין. עליו להכיל בין 14 ל-16 ספרות.');
+            return;
+        }
+
+        // 2. בדיקת תקינות מבנה התוקף (MM/YY)
+        const expRegex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+        if (!expRegex.test(expDate)) {
+            alert('שגיאה: תוקף הכרטיס אינו תקין. יש להזין תוקף במבנה של חודש ושנה, לדוגמה: 05/29');
+            return;
+        }
+
+        // 3. בדיקת תקינות קוד הביטחון CVV (מכיל בדיוק 3 ספרות)
+        const digitsOnlyCvv = cvv.replace(/\D/g, '');
+        if (digitsOnlyCvv.length !== 3) {
+            alert('שגיאה: קוד הביטחון (CVV) שהוזן אינו תקין. עליו להכיל בדיוק 3 ספרות הנמצאות בגב הכרטיס.');
+            return;
+        }
+
+        // אם כל הבדיקות עברו בהצלחה - מבצעים את הרישום הפיקטיבי ומציגים הודעת אישור
+        alert('הבדיקה עברה בהצלחה! פרטי האשראי אומתו מול חברת הסליקה, דמי הפיקדון שוריינו, ומקומכם בבר נשמר בהצלחה. שלחנו לכם SMS עם פרטי האישור.');
     });
 </script>
 

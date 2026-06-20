@@ -279,3 +279,93 @@ footer {
     max-width: 760px;
     height: 360px;
 }
+/* --- עיצוב מעוגל, נקי ומודרני לעמוד ה-Booking --- */
+
+/* הפיכת כל שדה למבנה של טור - כותרת מעל הריבוע */
+.booking-section .form-group,
+.booking-section .form-group-credit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+/* עיצוב הכותרות של כל שדה */
+.booking-section .form-group label,
+.booking-section .form-group-credit label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0077b6;
+    font-size: 16px;
+    text-align: right;
+    width: 100%;
+}
+
+/* עיצוב הריבועים (תיבות הקלט והבחירה) - פינות מעוגלות רחבות ורקע לבן נקי */
+.booking-section input[type="text"],
+.booking-section input[type="tel"],
+.booking-section input[type="number"],
+.booking-section select {
+    width: 100%;
+    max-width: 600px;
+    padding: 16px 20px;
+    border: 1.5px solid #e2e8f0; /* מסגרת עדינה ובהירה */
+    border-radius: 30px; /* פינות מעוגלות לחלוטין כמו בחיפוש! */
+    font-size: 16px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s ease;
+}
+
+/* אפקט הילה כחולה עדינה כשלוחצים בתוך הריבוע */
+.booking-section input:focus,
+.booking-section select:focus {
+    outline: none;
+    border-color: #00b4d8;
+    box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15);
+}
+
+/* סידור שדות האשראי (תוקף ו-CVV) אחד ליד השני */
+.booking-section .form-row-credit {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.booking-section .form-row-credit .form-group-credit {
+    flex: 1;
+}
+
+.booking-section .form-row-credit input {
+    text-align: center; /* ממרכז את המספרים בתוך התוקף וה-CVV */
+}
+
+/* עיצוב כפתור השליחה - גרדיאנט כחול מעוגל ויוקרתי */
+.booking-section button[type="submit"] {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 35px auto 10px auto; /* ממרכז את הלחצן אופקית */
+    border: none;
+    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    color: white;
+    padding: 16px 30px;
+    border-radius: 30px; /* לחצן מעוגל לחלוטין */
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.2);
+    transition: all 0.2s ease;
+}
+
+/* אפקט ריחוף על הלחצן */
+.booking-section button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.3);
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+}
