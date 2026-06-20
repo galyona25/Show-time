@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6f4fc;
+    color: #333333;
+}
+
+header {
+    background: linear-gradient(135deg,#0077b6,#00b4d8);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 55px;
+}
+
+header p {
+    font-size: 20px;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    background-color: white;
+    color: #0077b6;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #ffd60a;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+.home-section,
+.search-section,
+.event {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #0077b6;
+    font-size: 34px;
+}
+
+h3 {
+    color: #00b4d8;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+img {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+.search-box {
+    text-align: center;
+}
+
+.search-box input {
+    width: 70%;
+    max-width: 600px;
+    padding: 15px;
+    border-radius: 30px;
+    border: 2px solid #00b4d8;
+    font-size: 18px;
+}
+
+.search-box button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #0077b6;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search-box button:hover {
+    background: #023e8a;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(135deg,#ffd60a,#ffb703);
+    color: black;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 15px;
+}
+
+footer {
+    background: #0077b6;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
