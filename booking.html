@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Time - שריון מקום</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <!-- הלוגו והכותרת הקבועה של החברה -->
+    <h1>SHOW TIME</h1>
+    <p>הדרך החכמה למצוא איפה לראות את המשחק הבא</p>
+
+    <!-- תפריט הניווט - שימו לב שנוספו כאן הקישורים לכל העמודים -->
+    <nav>
+        <a href="index.html">דף הבית</a>
+        <a href="search.html">חיפוש אירועים</a>
+        <a href="booking.html">שריון מקום</a>
+    </nav>
+</header>
+
+<main>
+
+    <div class="booking-section">
+        <h2>שריון מקום מותאם אישית וסגירת פיקדון</h2>
+        <p>מלאו את פרטי ההזמנה כדי להבטיח את מקומכם מול המסך בצפייה במשחק!</p>
+
+        <!-- הטופס הנדרש במטלה: בעל משמעות וללא יעד (action="#") -->
+        <form action="#" method="POST" id="bookingForm">
+            
+            <!-- בחירת המשחק -->
+            <div class="form-group">
+                <label for="match">בחר משחק צפייה:</label>
+                <select id="match" name="match" required>
+                    <option value="">-- בחר משחק מהרשימה --</option>
+                    <option value="champions-league">גמר ליגת האלופות: ריאל מדריד נגד מנצ'סטר סיטי</option>
+                    <option value="el-clasico">סופר קלאסיקו: ברצלונה נגד ריאל מדריד</option>
+                    <option value="maccabi-haifa">ליגת העל: מכבי חיפה נגד מכבי תל אביב</option>
+                </select>
+            </div>
+
+            <!-- בחירת הבר/המסעדה -->
+            <div class="form-group">
+                <label for="venue">בחר בר/מסעדה:</label>
+                <select id="venue" name="venue" required>
+                    <option value="">-- בחר מיקום צפייה --</option>
+                    <option value="bar-sali">בר סאלח (כשר) - חיפה</option>
+                    <option value="sports-pub">הפאב האירי - תל אביב</option>
+                    <option value="match-point">מאץ' פוינט - ירושלים</option>
+                </select>
+            </div>
+
+            <!-- פרטים אישיים -->
+            <div class="form-group">
+                <label for="fullName">שם מלא:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="ישראל ישראלי" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">מספר טלפון:</label>
+                <input type="tel" id="phone" name="phone" placeholder="050-1234567" required>
+            </div>
+
+            <!-- כמות אנשים ואזור ישיבה -->
+            <div class="form-group">
+                <label for="guests">מספר מקומות להזמנה:</label>
+                <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
+            </div>
+
+            <div class="form-group">
+                <label for="area">אזור ישיבה מועדף:</label>
+                <select id="area" name="area" required>
+                    <option value="main-screen">צמוד למסך הענק המרכזי</option>
+                    <option value="bar">ישיבה על הבר</option>
+                    <option value="smoking">אזור מעשנים (עם מסכים היקפיים)</option>
+                    <option value="outer">חצר חיצונית</option>
+                </select>
+            </div>
+
+            <!-- פרטי אשראי לפיקדון דמי רצינות -->
+            <div class="form-group">
+                <label for="cardNumber">מספר כרטיס אשראי (לפיקדון ביטחון בלבד):</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+            </div>
+
+            <!-- כפתור שליחה -->
+            <button type="submit" class="button">אשר הזמנה ותפוס מקום</button>
+        </form>
+    </div>
+
+</main>
+
+<footer>
+    <!-- הפוטר הנדרש עם תעודות הזהות שלכם (תעדכנו את המספרים שלכם פה) -->
+    <p>כל הזכויות שמורות ל... [ת.ז 123456789, ת.ז 987654321, ת.ז 555555555]</p>
+</footer>
+
+<!-- אופציונלי: קוד JS קטן שמקפיץ הודעת אישור חמודה כשלוחצים שלח -->
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // מונע מהדף להתרענן סתם
+        alert('ההזמנה נקלטה במערכת Show Time! דמי הפיקדון שוריינו בהצלחה, ושלחנו לך הודעת SMS עם הברקוד לכניסה לבר.');
+    });
+</script>
+
+</body>
+</html>
