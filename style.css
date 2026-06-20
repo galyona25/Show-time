@@ -1,134 +1,281 @@
+/* ===== הגדרות כלליות ===== */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f6f4fc;
-    color: #333333;
+    background: linear-gradient(to bottom, #f8fbff, #eef7f4);
+    color: #333;
 }
 
+/* ===== כותרת עליונה ===== */
+
 header {
-    background: linear-gradient(135deg,#0077b6,#00b4d8);
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 40px 20px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 55px;
+    font-size: 60px;
+    letter-spacing: 3px;
 }
 
 header p {
     font-size: 20px;
+    margin-top: 10px;
 }
 
+/* ===== תפריט ניווט ===== */
+
 nav {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 nav a {
+    display: inline-block;
     text-decoration: none;
-    background-color: white;
-    color: #0077b6;
-    padding: 12px 20px;
+    color: white;
+    padding: 12px 24px;
     margin: 5px;
     border-radius: 30px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: 0.3s;
     font-weight: bold;
 }
 
 nav a:hover {
-    background-color: #ffd60a;
+    background: #facc15;
+    color: #111827;
+    transform: translateY(-2px);
 }
+
+/* ===== תוכן ראשי ===== */
 
 main {
     width: 90%;
     max-width: 1200px;
     margin: auto;
-    padding: 30px 0;
+    padding: 40px 0;
 }
+
+/* ===== כרטיסים ===== */
 
 .home-section,
 .search-section,
 .event {
     background: white;
     padding: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
+.home-section:hover,
+.search-section:hover,
+.event:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* ===== כותרות ===== */
+
 h2 {
-    color: #0077b6;
-    font-size: 34px;
+    color: #1e3a8a;
+    font-size: 36px;
+    border-right: 5px solid #facc15;
+    padding-right: 15px;
+    margin-bottom: 20px;
 }
 
 h3 {
-    color: #00b4d8;
+    color: #0ea5e9;
+    font-size: 26px;
 }
+
+/* ===== טקסט ===== */
 
 p {
     line-height: 1.8;
     font-size: 18px;
 }
 
+/* ===== תמונות ===== */
+
 img {
-    width: 100%;
-    max-width: 800px;
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
     display: block;
-    margin: 20px auto;
-    border-radius: 15px;
+    margin: 25px auto;
+    border-radius: 20px;
+    transition: 0.4s;
 }
+
+img:hover {
+    transform: scale(1.02);
+}
+
+/* ===== תיבת חיפוש ===== */
 
 .search-box {
     text-align: center;
+    margin: 30px 0;
 }
 
 .search-box input {
-    width: 70%;
-    max-width: 600px;
-    padding: 15px;
-    border-radius: 30px;
-    border: 2px solid #00b4d8;
+    width: 75%;
+    max-width: 650px;
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
     font-size: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.search-box input:focus {
+    outline: none;
+    box-shadow: 0 8px 25px rgba(14,165,233,0.3);
 }
 
 .search-box button {
-    padding: 15px 25px;
+    margin-top: 15px;
+    padding: 15px 35px;
     border: none;
-    border-radius: 30px;
-    background: #0077b6;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
     color: white;
-    cursor: pointer;
     font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .search-box button:hover {
-    background: #023e8a;
+    transform: scale(1.05);
 }
+
+/* ===== כפתורים ===== */
 
 .button {
     display: inline-block;
     text-decoration: none;
-    background: linear-gradient(135deg,#ffd60a,#ffb703);
-    color: black;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    color: #111827;
     padding: 12px 24px;
     border-radius: 30px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .button:hover {
     transform: scale(1.05);
 }
 
+/* ===== מסגרות iframe ===== */
+
 iframe {
     width: 100%;
     height: 450px;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
+/* ===== פוטר ===== */
+
 footer {
-    background: #0077b6;
+    background: #0f172a;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+/* ===== התאמה לנייד ===== */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .search-box input {
+    display: block;
+    width: 75%;
+    max-width: 650px;
+    padding: 18px;
+    margin: 15px auto;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+    img {
+        width: 100%;
+        height: 250px;
+    }
+
+    iframe {
+        height: 300px;
+    }
+}
+
+.home-section {
+    text-align: right;
+}
+
+.home-section p {
+    max-width: 900px;
+    margin: 20px auto;
+    line-height: 2;
+    font-size: 19px;
+    text-align: right;
+}
+
+.home-section h2 {
+    text-align: center;
+    border: none;
+    padding: 0;
+    font-size: 42px;
+}
+
+.button {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 10px;
+}
+
+.home-section {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    padding: 35px 45px;
+}
+
+.home-section p {
+    max-width: 760px;
+    margin: 18px auto;
+    line-height: 1.9;
+    font-size: 18px;
+    text-align: right;
+}
+
+.home-section h2,
+.home-section h3 {
+    max-width: 760px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hero-image {
+    max-width: 760px;
+    height: 360px;
 }
