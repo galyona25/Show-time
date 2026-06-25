@@ -100,41 +100,7 @@
     <p>כל הזכויות שמורות ל... [ת.ז 123456789, ת.ז 322822727, ת.ז 212744148]</p>
 </footer>
 
-<script>
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-        // מונע מהטופס להישלח אוטומטית לפני ביצוע בדיקות התקינות
-        e.preventDefault(); 
 
-        // שליפת הערכים שהוזנו בשדות האשראי
-        const cardNumber = document.getElementById('cardNumber').value.trim();
-        const expDate = document.getElementById('expDate').value.trim();
-        const cvv = document.getElementById('cvv').value.trim();
-
-        // 1. בדיקת תקינות מספר האשראי (מכיל רק מספרים ובאורך של 14 עד 16 ספרות)
-        const digitsOnlyCard = cardNumber.replace(/\D/g, '');
-        if (digitsOnlyCard.length < 14 || digitsOnlyCard.length > 16) {
-            alert('שגיאה: מספר כרטיס האשראי שהוזן אינו תקין. עליו להכיל בין 14 ל-16 ספרות.');
-            return;
-        }
-
-        // 2. בדיקת תקינות מבנה התוקף (MM/YY)
-        const expRegex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
-        if (!expRegex.test(expDate)) {
-            alert('שגיאה: תוקף הכרטיס אינו תקין. יש להזין תוקף במבנה של חודש ושנה, לדוגמה: 05/29');
-            return;
-        }
-
-        // 3. בדיקת תקינות קוד הביטחון CVV (מכיל בדיוק 3 ספרות)
-        const digitsOnlyCvv = cvv.replace(/\D/g, '');
-        if (digitsOnlyCvv.length !== 3) {
-            alert('שגיאה: קוד הביטחון (CVV) שהוזן אינו תקין. עליו להכיל בדיוק 3 ספרות הנמצאות בגב הכרטיס.');
-            return;
-        }
-
-        // אם כל הבדיקות עברו בהצלחה - מבצעים את הרישום הפיקטיבי ומציגים הודעת אישור
-        alert('הבדיקה עברה בהצלחה! פרטי האשראי אומתו מול חברת הסליקה, דמי הפיקדון שוריינו, ומקומכם בבר נשמר בהצלחה. שלחנו לכם SMS עם פרטי האישור.');
-    });
-</script>
 
 </body>
 </html>
