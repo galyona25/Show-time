@@ -272,3 +272,76 @@ footer {
 .booking-section button[type="submit"]:hover {
     background-color: #005f8e;
 }
+
+#logo {
+    width: 180px;
+    height: auto;
+    border: none;
+    box-shadow: none;
+    margin: 0 auto 10px auto;
+    display: block;
+}
+
+/* מימדים וריווח ספציפיים לכרטיס העסק שלכם */
+.business-section {
+    text-align: right;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    padding: 35px 45px;
+}
+
+.business-section .form-group {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.business-section .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #0077b6; /* כחול מיתוגי אחיד לשדות האתר */
+    font-size: 16px;
+    text-align: right;
+    width: 100%;
+}
+
+/* שדות קלט וסלקט מותאמים בדיוק לחומר הנלמד (ללא הגדרות email/number עודפות) */
+.business-section input[type="text"],
+.business-section select {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    padding: 16px 20px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    box-shadow: 2px 2px 5px #cccccc;
+}
+
+/* כפתור שליחה מעוצב בהתאמה מלאה לכפתורי האתר */
+.business-section input[type="submit"] {
+    display: block;
+    width: 300px;
+    margin: 35px auto 10px auto;
+    border: none;
+    background-color: #0077b6;
+    color: white;
+    padding: 16px 30px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px #cccccc;
+}
+
+.business-section input[type="submit"]:hover {
+    background-color: #005f8e;
+}
+
+/* עיצוב אזור הודעת הפידבק של ה-JS */
+#feedbackMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
