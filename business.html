@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowTime - הצטרפות לעסקים</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+        <img src="image_34e5a7.png" alt="ShowTime Logo" style="width:180px; height:auto; border:none; box-shadow:none; margin:0 auto;">
+        <nav>
+            <a href="index.html">עמוד הבית</a>
+            <a href="search.html">חיפוש משחקים</a>
+            <a href="booking.html">שריון מקום</a>
+            <a href="business.html">הצטרפות לעסקים</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="business-section">
+            <h2>הצטרפו לפלטפורמת ShowTime והגדילו את ההכנסות!</h2>
+            <p>האם יש לכם בר או מסעדה שמקרינים אירועי ספורט? הפלטפורמה שלנו פונה בדיוק לקהל חובבי הספורט ומחברת בינם לבין מקומות בילוי פנויים בזמן אמת.</p>
+            <p>באמצעות השותפות איתנו, תוכלו למקסם את תפוסת המקומות שלכם, למנוע "הברזות" של הרגע האחרון בעזרת מנגנון הפיקדונות המאובטח שלנו, ולהבטיח שכל שולחן מניב לכם הכנסה מקסימלית סביב משחקים אטרקטיביים.</p>
+            
+            <br>
+            <h3>טופס רישום והגשת מועמדות לעסקים (B2B)</h3>
+            <br>
+
+            <form action="#" method="post" id="businessRegistrationForm" onsubmit="return validateBusinessForm()">
+                
+                <div class="form-group">
+                    <label for="businessName">שם בית העסק (הבר / המסעדה):</label>
+                    <input type="text" id="businessName" name="businessName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ownerName">שם הבעלים / איש הקשר:</label>
+                    <input type="text" id="ownerName" name="ownerName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessPhone">טלפון נייד ליצירת קשר:</label>
+                    <input type="text" id="businessPhone" name="businessPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessEmail">כתובת אימייל עסקית:</label>
+                    <input type="email" id="businessEmail" name="businessEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="capacity">קיבולת מקומות ישיבה מקסימלית:</label>
+                    <input type="number" id="capacity" name="capacity" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="screensCount">מספר מסכים / מקרנים במקום:</label>
+                    <input type="number" id="screensCount" name="screensCount" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">עיר פעילות העסק:</label>
+                    <select id="city" name="city" required>
+                        <option value="">-- בחר עיר --</option>
+                        <option value="haifa">חיפה והסביבה</option>
+                        <option value="telaviv">תל אביב והמרכז</option>
+                        <option value="jerusalem">ירושלים</option>
+                        <option value="beer-sheva">באר שבע והדרום</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="submit" value="שליחת בקשת הצטרפות">
+                </div>
+            </form>
+            
+            <div id="feedbackMessage"></div>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        function validateBusinessForm() {
+            var phone = document.getElementById('businessPhone').value;
+            var capacity = document.getElementById('capacity').value;
+            var msgDiv = document.getElementById('feedbackMessage');
+            
+            // בדיקת אורך וספרות לטלפון (בסיסי ותואם למה שנלמד במעבדות)
+            if (phone.length < 9 || phone.length > 10 || isNaN(phone)) {
+                msgDiv.style.color = "red";
+                msgDiv.style.fontWeight = "bold";
+                msgDiv.innerHTML = "שגיאה: נא להזין מספר טלפון תקין בעל 9 או 10 ספרות בלבד.";
+                return false;
+            }
+
+            // בדיקה שקיבולת המקומות חיובית
+            if (Number(capacity) <= 0) {
+                msgDiv.style.color = "red";
+                msgDiv.style.fontWeight = "bold";
+                msgDiv.innerHTML = "שגיאה: קיבולת המקומות חייבת להיות גדולה מ-0.";
+                return false;
+            }
+
+            // הודעת הצלחה במידה והכל תקין
+            msgDiv.style.color = "green";
+            msgDiv.style.fontWeight = "bold";
+            msgDiv.innerHTML = "הבקשה נשלחה בהצלחה! נציג השותפויות של ShowTime יחזור אליכם בהקדם.";
+            document.getElementById('businessRegistrationForm').reset();
+            return false; // מונע רענון העמוד מאחר וזה טופס ללא יעד
+        }
+    </script>
+
+    <footer>
+        <p>כל הזכויות שמורות ל... [תעודות הזהות שלכם כאן]</p>
+    </footer>
+
+</body>
+</html>
