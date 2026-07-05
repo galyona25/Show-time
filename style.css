@@ -283,7 +283,7 @@ footer {
     display: block;
 }
 
-/* מימדים וריווח ספציפיים לכרטיס העסק שלכם */
+/* מימדים וריווח ספציפיים לכרטיס העסק  */
 .business-section {
     text-align: right;
     max-width: 900px;
@@ -306,7 +306,6 @@ footer {
     width: 100%;
 }
 
-/* שדות קלט וסלקט מותאמים בדיוק לחומר הנלמד (ללא הגדרות email/number עודפות) */
 .business-section input[type="text"],
 .business-section select {
     display: block;
